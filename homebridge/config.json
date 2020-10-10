@@ -1,0 +1,139 @@
+{
+    "bridge": {
+        "name": "Pod Bridge",
+        "username": "0E:17:BD:5E:1E:75",
+        "port": 51119,
+        "pin": "208-17-567"
+    },
+    "platforms": [
+        {
+            "name": "Alexa",
+            "username": "XXXX",
+            "password": "XXXX",
+            "pin": "208-17-567",
+            "platform": "Alexa"
+        },
+        {
+            "name": "Config",
+            "port": 8581,
+            "auth": "form",
+            "theme": "dark-mode",
+            "tempUnits": "c",
+            "lang": "auto",
+            "platform": "config"
+        },
+        {
+            "platform": "cmdSwitch2",
+            "name": "homebridge-cmdswitch2",
+            "switches": [
+                {
+                    "name": "Return Home",
+                    "on_cmd": "cd /home/pi/VectorSdk/scripts/ && ./go_home.py",
+                    "off_cmd": "cd",
+                    "state_cmd": "ps aux | grep '[g]o_home.py'",
+                    "polling": true,
+                    "interval": 30,
+                    "manufacturer": "Recognition Designs Ltd",
+                    "serial": "V.1.0",
+                    "model": "Pod Server",
+                    "type": "Switch"
+                },
+                {
+                    "name": "Battery Check",
+                    "on_cmd": "cd /home/pi/VectorSdk/scripts/ && ./battery_text.py",
+                    "off_cmd": "pkill -f battery_text.py",
+                    "state_cmd": "ps aux | grep '[b]attery_text.py'",
+                    "polling": false,
+                    "interval": 30,
+                    "manufacturer": "Recognition Designs Ltd",
+                    "serial": "V.1.0",
+                    "model": "Pod Server",
+                    "type": "Switch"
+                },
+                {
+                    "name": "Go explore",
+                    "on_cmd": "cd /home/pi/VectorSdk/scripts/ && ./go_explore.py",
+                    "off_cmd": "pkill -f go_explore.py",
+                    "state_cmd": "ps aux | grep '[g]o_explore.py'",
+                    "polling": false,
+                    "interval": 30,
+                    "manufacturer": "Recognition Designs Ltd",
+                    "serial": "V.1.0",
+                    "model": "Pod Server",
+                    "type": "Switch"
+                },
+                {
+                    "name": "Switch 4",
+                    "on_cmd": "cd /home/pi/VectorSdk/scripts/ && ./time_text.py",
+                    "off_cmd": "pkill -f time_text.py",
+                    "state_cmd": "ps aux | grep '[t]ime_text.py'",
+                    "polling": false,
+                    "interval": 30,
+                    "manufacturer": "Recognition Designs Ltd",
+                    "serial": "V.1.0",
+                    "model": "Pod Server",
+                    "type": "Switch"
+                },
+                {
+                    "name": "Switch 5",
+                    "on_cmd": "cd /home/pi/VectorSdk/scripts/ && ./alarm.py",
+                    "off_cmd": "echo '' | sudo -S alarm.py",
+                    "state_cmd": "ps aux | grep '[a]larm.py'",
+                    "polling": true,
+                    "interval": 30,
+                    "manufacturer": "Recognition Designs Ltd",
+                    "serial": "V.1.0",
+                    "model": "Pod Server",
+                    "type": "Switch"
+                },
+                {
+                    "name": "Switch 6",
+                    "on_cmd": "cd /home/pi/VectorSdk/scripts/ && ./silent_night.py",
+                    "off_cmd": "pkill -f silent_night.py",
+                    "state_cmd": "ps aux | grep '[s]ilent_night.py'",
+                    "polling": false,
+                    "interval": 3600,
+                    "manufacturer": "Recognition Designs Ltd",
+                    "serial": "V.1.0",
+                    "model": "Pod Server",
+                    "type": "Switch"
+                },
+                {
+                    "name": "Switch 7",
+                    "on_cmd": "cd /home/pi/VectorSdk/scripts/ && ./stopwatch_vector_screen.py",
+                    "off_cmd": "echo '' | sudo -S stopwatch_vector_screen.py",
+                    "state_cmd": "ps aux | grep '[s]topwatch_vector_screen.py'",
+                    "polling": true,
+                    "interval": 10,
+                    "manufacturer": "Recognition Designs Ltd",
+                    "serial": "V.1.0",
+                    "model": "Pod Server",
+                    "type": "Switch"
+                },
+                {
+                    "name": "Switch 8",
+                    "on_cmd": "cd /home/pi/VectorSdk/ && ./EL_light_on.py",
+                    "off_cmd": "cd /home/pi/VectorSdk/ && ./EL_light_off.py",
+                    "state_cmd": "ps aux | grep '[E]L_light_on.py'",
+                    "polling": true,
+                    "interval": 10,
+                    "manufacturer": "Recognition Designs Ltd",
+                    "serial": "V.1.0",
+                    "model": "Pod Server",
+                    "type": "Light"
+                },
+                {
+                    "name": "Switch 9",
+                    "on_cmd": "ssh 'pi@192.168.0.102' /var/www/rfoutlet/codesend 11063192 -l 600 -p 6",
+                    "off_cmd": "ssh 'pi@192.168.0.102' /var/www/rfoutlet/codesend 11063188 -l 600 -p 6",
+                    "state_cmd": "ps aux | grep '[E]L_light_on.py'",
+                    "polling": false,
+                    "interval": 30,
+                    "manufacturer": "Recognition Designs Ltd",
+                    "type": "Light"
+                }
+            ]
+        }
+    ],
+    "accessories": []
+}
